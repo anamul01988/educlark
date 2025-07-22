@@ -1,600 +1,876 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Educlerk Dashboard</title>
-  <!-- Bootstrap 4.3.1 CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <!-- Font Awesome 4.7.0 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
-  <!-- FullCalendar v3 CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
-</head>
-<body>
-  <div class="container-fluid">
-    <div class="row no-gutters">
-      <!-- Sidebar Drawer Navigation -->
-      <nav class="col-md-2 sidebar" role="navigation" aria-label="Sidebar">
-        <img src="https://i.imgur.com/6o5Vg1F.png" alt="Educlerk Logo" class="sidebar-logo">
-        <div class="sidebar-section">
-          <button class="sidebar-tab active" data-toggle="collapse" data-target="#school-drawer" aria-expanded="true" aria-controls="school-drawer">
-            <i class="fa fa-university"></i> School
-          </button>
-          <div class="collapse show" id="school-drawer">
-            <ul class="sidebar-drawer-list">
-              <li><a href="#" class="active">Student List</a></li>
-              <li><a href="#">Download Atten Sheet</a></li>
-            </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Educlerk Dashboard</title>
+    <!-- Bootstrap 4.3.1 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <!-- Font Awesome 4.7.0 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- FullCalendar v3 CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row no-gutters">
+        <!-- Sidebar Drawer Navigation -->
+        <nav class="col-md-2 sidebar" role="navigation" aria-label="Sidebar">
+          <img
+            src="./assets/Group.png"
+            alt="Educlerk Logo"
+            class="sidebar-logo"
+          />
+          <div class="sidebar-section">
+            <button class="sidebar-tab dashboard active">
+              <i class="fa fa-th-large"></i> Dashboard
+            </button>
+            <button class="sidebar-tab menu-setup">
+              <i class="fa fa-cog"></i> Menu Setup
+            </button>
           </div>
-        </div>
-        <div class="sidebar-section">
-          <button class="sidebar-tab" data-toggle="collapse" data-target="#studentmanager-drawer" aria-expanded="false" aria-controls="studentmanager-drawer">
-            <i class="fa fa-users"></i> Student Manager
-          </button>
-          <div class="collapse" id="studentmanager-drawer">
-            <ul class="sidebar-drawer-list">
-              <li><a href="#">Testimonial Generate</a></li>
-              <li><a href="#">Student Promotion</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="sidebar-section">
-          <button class="sidebar-tab" data-toggle="collapse" data-target="#library-drawer" aria-expanded="false" aria-controls="library-drawer">
-            <i class="fa fa-book"></i> Library
-          </button>
-          <div class="collapse" id="library-drawer">
-            <ul class="sidebar-drawer-list">
-              <li><a href="#">General Admit Card</a></li>
-              <li><a href="#">Update Extra Facility</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="sidebar-section">
-          <button class="sidebar-tab" data-toggle="collapse" data-target="#exam-drawer" aria-expanded="false" aria-controls="exam-drawer">
-            <i class="fa fa-pencil-square-o"></i> Exam
-          </button>
-          <div class="collapse" id="exam-drawer">
-            <ul class="sidebar-drawer-list">
-              <li><a href="#">ID Card Download</a></li>
-              <li><a href="#">Attendance Class Time</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="sidebar-section">
-          <button class="sidebar-tab" data-toggle="collapse" data-target="#result-drawer" aria-expanded="false" aria-controls="result-drawer">
-            <i class="fa fa-bar-chart"></i> Result
-          </button>
-          <div class="collapse" id="result-drawer">
-            <ul class="sidebar-drawer-list">
-              <li><a href="#">TC Generate</a></li>
-              <li><a href="#">Barcode Create</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="sidebar-section">
-          <button class="sidebar-tab" data-toggle="collapse" data-target="#classactivities-drawer" aria-expanded="false" aria-controls="classactivities-drawer">
-            <i class="fa fa-tasks"></i> Class Activities
-          </button>
-          <div class="collapse" id="classactivities-drawer">
-            <ul class="sidebar-drawer-list">
-              <li><a href="#">Student Leave</a></li>
-              <li><a href="#">Student Certificate</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="sidebar-section">
-          <button class="sidebar-tab" data-toggle="collapse" data-target="#accounting-drawer" aria-expanded="false" aria-controls="accounting-drawer">
-            <i class="fa fa-calculator"></i> Accounting
-          </button>
-          <div class="collapse" id="accounting-drawer">
-            <ul class="sidebar-drawer-list">
-              <li><a href="#">Board Result Entry</a></li>
-              <li><a href="#">Daily Absent Statement</a></li>
-              <li><a href="#">Update Board Result</a></li>
-              <li><a href="#">Absent Miss Match</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="sidebar-section">
-          <button class="sidebar-tab" data-toggle="collapse" data-target="#reports-drawer" aria-expanded="false" aria-controls="reports-drawer">
-            <i class="fa fa-file"></i> Reports
-          </button>
-          <div class="collapse" id="reports-drawer">
-            <ul class="sidebar-drawer-list">
-              <!-- Add report links here if needed -->
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- Main Content -->
-      <main class="col-md-10" style="padding-left: 0;">
-        <!-- Header Section -->
-        <header class="main-header">
-          <div class="header-row d-flex align-items-center justify-content-between">
-            <div class="header-left d-flex align-items-center">
-              <span class="welcome-text">Welcome Educlerk <span class="wave-icon" role="img" aria-label="wave">👋</span></span>
+          <div class="sidebar-section">
+            <div class="sidebar-submenu-group">
+              <div class="sidebar-icon">
+                <i class="fa fa-university"></i>
+                <div class="sidebar-label">School</div>
+              </div>
+              <div>
+                <ul class="sidebar-drawer-list">
+                  <li><a href="#" class="">Student List</a></li>
+                  <li><a href="#">Download Atten Sheet</a></li>
+                </ul>
+              </div>
             </div>
-            <form class="header-search d-flex align-items-center">
-              <span class="search-icon"><i class="fa fa-search"></i></span>
-              <input type="text" class="search-input" placeholder="Search" aria-label="Search">
-            </form>
-            <div class="header-right d-flex align-items-center">
-              <button class="icon-btn mr-2 position-relative" aria-label="Notifications">
-                <i class="fa fa-bell-o"></i>
-                <span class="badge badge-danger badge-dot">3</span>
-              </button>
-              <button class="icon-btn mr-2 position-relative" aria-label="Messages">
-                <i class="fa fa-envelope-o"></i>
-                <span class="badge badge-danger badge-dot">5</span>
-              </button>
-              <div class="user-info d-flex align-items-center mr-3">
-                <img src="https://i.imgur.com/0y0y0y0.png" alt="User" class="user-avatar">
-                <div class="ml-2">
-                  <div class="user-name">Mr Nahid</div>
-                  <small class="user-role">Admin</small>
-                </div>
+            <hr class="sidebar-divider" />
+          </div>
+          <div class="sidebar-section">
+            <div class="sidebar-submenu-group">
+              <div class="sidebar-icon">
+                <i class="fa fa-users"></i>
+                <div class="sidebar-label">Student Manager</div>
               </div>
-              <button class="btn add-widget-btn d-flex align-items-center"><span>Add widget</span></button>
+              <div>
+                <ul class="sidebar-drawer-list">
+                  <li><a href="#" class="">Testimonial Generate</a></li>
+                  <li><a href="#">Student Promotion</a></li>
+                </ul>
+              </div>
             </div>
+            <hr class="sidebar-divider" />
           </div>
-          <div class="header-date">Friday, 24 September</div>
-          <hr class="header-divider">
-          <div class="header-filterbar d-flex justify-content-end align-items-center">
-            <button class="btn filter-btn mr-2">All Classes <i class="fa fa-caret-down ml-1"></i></button>
-            <button class="btn filter-btn mr-2">Today <i class="fa fa-calendar ml-1"></i></button>
-            <button class="btn download-btn mr-2">Download <i class="fa fa-download ml-1"></i></button>
-            <button class="btn filter-btn"><i class="fa fa-filter mr-1"></i>Filter</button>
+          <div class="sidebar-section">
+            <div class="sidebar-submenu-group">
+              <div class="sidebar-icon">
+                <i class="fa fa-book"></i>
+                <div class="sidebar-label">Library</div>
+              </div>
+              <div>
+                <ul class="sidebar-drawer-list">
+                  <li><a href="#">General Admit Card</a></li>
+                  <li><a href="#">Update Extra Facility</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr class="sidebar-divider" />
           </div>
-        </header>
-        <!-- Dashboard Summary Row -->
-        <div class="dashboard-summary-row d-flex justify-content-center align-items-stretch">
-          <!-- Total Students -->
-          <div class="summary-card">
-            <div class="summary-icon"><i class="fa fa-users"></i></div>
-            <div class="summary-value">480</div>
-            <div class="summary-label">Total Students</div>
-            <div class="summary-separator"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="sidebar-section">
+            <div class="sidebar-submenu-group">
+              <div class="sidebar-icon">
+                <i class="fa fa-pencil-square-o"></i>
+                <div class="sidebar-label">Exam</div>
+              </div>
+              <div>
+                <ul class="sidebar-drawer-list">
+                  <li><a href="#">ID Card Download</a></li>
+                  <li><a href="#">Attendance Class Time</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr class="sidebar-divider" />
           </div>
-          <!-- Present Students -->
-          <div class="summary-card present">
-            <div class="summary-icon"><i class="fa fa-sign-in"></i></div>
-            <div class="summary-value">455</div>
-            <div class="summary-label">Present Students</div>
-            <div class="summary-separator"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="sidebar-section">
+            <div class="sidebar-submenu-group">
+              <div class="sidebar-icon">
+                <i class="fa fa-bar-chart"></i>
+                <div class="sidebar-label">Result</div>
+              </div>
+              <div>
+                <ul class="sidebar-drawer-list">
+                  <li><a href="#">TC Generate</a></li>
+                  <li><a href="#">Barcode Create</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr class="sidebar-divider" />
           </div>
-          <!-- Absent Students -->
-          <div class="summary-card">
-            <div class="summary-icon"><i class="fa fa-user-times"></i></div>
-            <div class="summary-value">10</div>
-            <div class="summary-label">Absent Students</div>
-            <div class="summary-separator"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="sidebar-section">
+            <div class="sidebar-submenu-group">
+              <div class="sidebar-icon">
+                <i class="fa fa-tasks"></i>
+                <div class="sidebar-label">Class Activities</div>
+              </div>
+              <div>
+                <ul class="sidebar-drawer-list">
+                  <li><a href="#">Student Leave</a></li>
+                  <li><a href="#">Student Certificate</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr class="sidebar-divider" />
           </div>
-          <!-- Late Students Today (no separator here) -->
-          <div class="summary-card">
-            <div class="summary-icon"><i class="fa fa-clock-o"></i></div>
-            <div class="summary-value">25</div>
-            <div class="summary-label">Late Students Today</div>
-          </div>
-        </div>
-   
-        <!-- Main Dashboard Content -->
-        <div class="row px-4">
-          <div class="col-md-8">
-            <!-- Report: Present and Absent -->
-            <section class="card p-3 mb-4 report-section">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <div>
-                  <div class="report-title">Report</div>
-                  <div class="report-subtitle">Present and Absent
-                    <span class="legend-dot present"></span> Present
-                    <span class="legend-dot absent"></span> Absent
-                  </div>
-                </div>
-                <div class="d-flex align-items-center">
-                  <select class="form-control form-control-sm mr-2 report-select">
-                    <option>Class 10</option>
-                  </select>
-                  <select class="form-control form-control-sm mr-2 report-select">
-                    <option>This Week</option>
-                  </select>
-                  <button class="btn btn-link p-0"><i class="fa fa-calendar"></i></button>
-                </div>
+          <div class="sidebar-section">
+            <div class="sidebar-submenu-group">
+              <div class="sidebar-icon">
+                <i class="fa fa-calculator"></i>
+                <div class="sidebar-label">Accounting</div>
               </div>
-              <ul class="nav nav-tabs report-tabs mb-3" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#students" role="tab">Students</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#teachers" role="tab">Teachers</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#staff" role="tab">Staff</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="students" role="tabpanel">
-                  <div class="report-chart" id="present-absent-chart"><canvas id="presentAbsentBar"></canvas></div>
-                </div>
-                <div class="tab-pane fade" id="teachers" role="tabpanel">
-                  <div class="report-chart">[Teachers Chart Placeholder]</div>
-                </div>
-                <div class="tab-pane fade" id="staff" role="tabpanel">
-                  <div class="report-chart">[Staff Chart Placeholder]</div>
-                </div>
-              </div>
-            </section>
-            <!-- Statistics: Financial -->
-            <section class="card p-3 mb-4 statistics-section">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <div>
-                  <div class="statistics-title">Statistics</div>
-                  <div class="statistics-subtitle">Financial
-                    <span class="legend-dot income"></span> Income
-                    <span class="legend-dot expense"></span> Expence
-                  </div>
-                </div>
-                <div class="d-flex align-items-center">
-                  <button class="btn btn-link p-0 mr-2"><i class="fa fa-download"></i> Download</button>
-                  <select class="form-control form-control-sm statistics-select">
-                    <option>Monthly</option>
-                  </select>
-                </div>
-              </div>
-              <div class="statistics-chart" id="financial-chart"><canvas id="financialLine"></canvas></div>
-            </section>
-            <!-- Report: Unpaid Student -->
-            <section class="card p-4 mb-4 report-section unpaid-student-section">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div>
-                  <div class="report-title">Report</div>
-                  <div class="report-subtitle">Unpaid Student</div>
-                </div>
-                <div class="d-flex align-items-center">
-                  <select class="form-control form-control-sm mr-2 report-select">
-                    <option>Class 10</option>
-                  </select>
-                  <select class="form-control form-control-sm report-select">
-                    <option>Monthly</option>
-                  </select>
-                </div>
-              </div>
-              <div class="table-responsive mb-2">
-                <table class="table table-sm mb-0 unpaid-table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>ID</th>
-                      <th>Class</th>
-                      <th>Fees</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Samantha William</td>
-                      <td><a href="#">ID 20145</a></td>
-                      <td>Class Nine</td>
-                      <td>25K</td>
-                      <td><a href="#"><i class="fa fa-eye"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>Nadila Adja</td>
-                      <td><a href="#">ID 20145</a></td>
-                      <td>Class Ten</td>
-                      <td>25K</td>
-                      <td><a href="#"><i class="fa fa-eye"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>Nadila Adja</td>
-                      <td><a href="#">ID 20145</a></td>
-                      <td>Class Seven</td>
-                      <td>25K</td>
-                      <td><a href="#"><i class="fa fa-eye"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td>Nadila Adja</td>
-                      <td><a href="#">ID 20145</a></td>
-                      <td>Class Ten</td>
-                      <td>25K</td>
-                      <td><a href="#"><i class="fa fa-eye"></i></a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="d-flex justify-content-between align-items-center mt-2 unpaid-pagination">
-                <div class="d-flex align-items-center">
-                  <span>Item per page:</span>
-                  <select class="form-control form-control-sm ml-2" style="width: 60px;">
-                    <option>10</option>
-                  </select>
-                </div>
-                <span>1 - 10 OF 16 <i class="fa fa-angle-left mx-1"></i><i class="fa fa-angle-right mx-1"></i></span>
-              </div>
-            </section>
-            <div class="row mb-4 align-items-stretch">
-              <div class="col-md-6 mb-3 mb-md-0 d-flex">
-                <section class="card p-3 sms-info-section w-100 d-flex flex-column align-items-center justify-content-center position-relative">
-                  <div class="sms-title mb-2">SMS Information</div>
-                  <div class="position-relative d-flex align-items-center justify-content-center" style="height: 120px; width: 120px;">
-                    <canvas id="smsDonut" width="120" height="120"></canvas>
-                    <div class="sms-center-text position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center">
-                      <div class="sms-total">17500</div>
-                      <div class="sms-label">Total SMS</div>
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-between mt-3 sms-legend w-100 px-2">
-                    <span><span class="legend-dot sms-available"></span> Available SMS:11020</span>
-                    <span><span class="legend-dot sms-send"></span> Send SMS:5200</span>
-                  </div>
-                </section>
-              </div>
-              <div class="col-md-6 d-flex">
-                <section class="card p-3 result-report-section w-100 d-flex flex-column align-items-center justify-content-center">
-                  <div class="result-title mb-2 w-100">Result Report</div>
-                  <div class="d-flex mb-2 w-100">
-                    <select class="form-control form-control-sm mr-2 result-select">
-                      <option>Class 10</option>
-                    </select>
-                    <select class="form-control form-control-sm result-select">
-                      <option>Exam Type</option>
-                    </select>
-                  </div>
-                  <div class="w-100" style="min-height: 140px;">
-                    <canvas id="resultBar" height="140"></canvas>
-                  </div>
-                </section>
+              <div>
+                <ul class="sidebar-drawer-list">
+                  <li><a href="#">Board Result Entry</a></li>
+                  <li><a href="#">Daily Absent Statement</a></li>
+                </ul>
               </div>
             </div>
           </div>
-          <!-- Right Sidebar Widgets -->
-          <div class="col-md-4">
-                 <!-- Custom Card Component (from Figma JSON) -->
-        <div class="custom-card-container">
-            <div class="custom-card">
-              <!-- Filter Button (top right) -->
-              <button class="filter-btn">
-                All Class
-                <i class="fa fa-angle-down"></i>
-              </button>
-              <!-- Card Info -->
-              <div class="card-info">
-                <div class="card-type">Type Card</div>
-                <div class="card-title">Card Title</div>
+        </nav>
+        <!-- Main Content -->
+        <main class="col-md-10" style="padding-left: 0">
+          <!-- Header Section -->
+          <header class="main-header">
+            <div
+              class="header-row d-flex align-items-center justify-content-between"
+            >
+              <div class="header-left d-flex align-items-center">
+                <span class="welcome-text"
+                  >Welcome Educlerk
+                  <span class="wave-icon" role="img" aria-label="wave"
+                    >👋</span
+                  ></span
+                >
               </div>
-              <!-- Chart Dots -->
-              <div class="chart-dots">
-                <div class="dot large-dot">
-                  <span class="dot-percentage large">85%</span>
+              <form class="header-search d-flex align-items-center">
+                <span class="search-icon"><i class="fa fa-search"></i></span>
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </form>
+              <div class="header-right d-flex align-items-center">
+                <button
+                  class="icon-btn mr-2 position-relative"
+                  aria-label="Notifications"
+                >
+                  <img src="./assets/notify.png" alt="Notifications" style="width: 17px; height: 19px; display: block;" />
+                  <span class="badge badge-danger badge-dot">3</span>
+                </button>
+                <button
+                  class="icon-btn mr-2 position-relative"
+                  aria-label="Messages"
+                >
+                  <img src="./assets/email.png" alt="Messages" style="width: 22px; height: 22px; display: block;" />
+                  <span class="badge badge-danger badge-dot">5</span>
+                </button>
+                <div class="user-info d-flex align-items-center mr-3">
+                  <img
+                    src="https://i.imgur.com/0y0y0y0.png"
+                    alt="User"
+                    class="user-avatar"
+                  />
+                  <div class="ml-2">
+                    <div class="user-name">Mr Nahid</div>
+                    <small class="user-role">Admin</small>
+                  </div>
                 </div>
-                <div class="dot medium-dot">
-                  <span class="dot-percentage medium">60%</span>
-                </div>
-              </div>
-              <!-- Labels Row -->
-              <div class="labels-row d-flex justify-content-between">
-                <div class="label-item d-flex align-items-center">
-                  <span class="label-dot blue"></span>
-                  <span class="label-text">Label 1</span>
-                </div>
-                <div class="label-item d-flex align-items-center">
-                  <span class="label-dot purple"></span>
-                  <span class="label-text">Label 2</span>
-                </div>
+                <!-- <button class="btn add-widget-btn d-flex align-items-center">
+                  <span>Add widget</span>
+                </button> -->
               </div>
             </div>
-          </div>
-            <section class="card p-3 mb-3" aria-labelledby="school-calendar">
-              <div class="card-title mb-2 d-flex align-items-center justify-content-between" id="school-calendar">
-                <span>School Calendar</span>
-                <button class="calendar-add-btn d-flex align-items-center" style="background: none; border: none; padding: 0;">
-                  <span class="calendar-add-icon d-flex align-items-center justify-content-center mr-2">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="3.5" y="3.5" width="17" height="17" rx="4" fill="white"/>
-                      <path d="M12 8V16" stroke="#0057a7" stroke-width="2" stroke-linecap="round"/>
-                      <path d="M8 12H16" stroke="#0057a7" stroke-width="2" stroke-linecap="round"/>
-                      <rect x="1" y="1" width="22" height="22" rx="6" stroke="#0057a7" stroke-width="2"/>
-                    </svg>
-                  </span>
-                  <span class="calendar-add-text" style="color: #0057a7; font-weight: 500; font-size: 16px;">Add New</span>
+            <hr class="header-divider" />
+            <div
+              class="header-filter-area d-flex justify-content-between align-items-center"
+            >
+              <div class="header-date">Friday, 24 September</div>
+              <div class="d-flex justify-content-center align-items-center">
+                <button class="btn filter-btn mr-2">
+                  All Classes <i class="fa fa-caret-down ml-1"></i>
+                </button>
+                <button class="btn filter-btn mr-2">
+                  Today <i class="fa fa-calendar ml-1"></i>
+                </button>
+                <button class="btn download-btn mr-2">
+                  Download <i class="fa fa-download ml-1"></i>
+                </button>
+                <button class="btn filter-btn">
+                  <i class="fa fa-filter mr-1"></i>Filter
                 </button>
               </div>
-              <div id="school-calendar-widget"></div>
-              <div class="mb-1"><b>New Class Nine</b> - Bangla Poetry Competition</div>
-              <div><b>24 Nov</b> - Independence Day</div>
-            </section>
-            <!-- Total Teacher Card -->
-            <section class="card p-3 mb-3 teacher-card d-flex align-items-center justify-content-between" aria-labelledby="total-teacher">
-              <div class="d-flex align-items-center">
-                <div class="teacher-icon mr-3 d-flex align-items-center justify-content-center"><i class="fa fa-frown-o"></i></div>
-                <div>
-                  <div class="teacher-count">56</div>
-                  <div class="teacher-label">TOTAL TEACHER</div>
-                </div>
+            </div>
+          </header>
+          <!-- Dashboard Summary Row -->
+          <div
+            class="dashboard-summary-row d-flex justify-content-center align-items-stretch"
+          >
+            <!-- Total Students -->
+            <div class="summary-card">
+              <div class="summary-icon"><i class="fa fa-users"></i></div>
+              <div class="summery-content">
+                <div class="summary-value">480</div>
+                <div class="summary-label">Total Students</div>
               </div>
-              <div class="d-flex flex-column align-items-end">
-                <button class="btn btn-link p-0 teacher-dropdown">All Subject <i class="fa fa-angle-down ml-1"></i></button>
-                <i class="fa fa-arrow-right mt-2"></i>
+              <div class="summary-separator">
+                <span class="dot"></span><span class="dot"></span
+                ><span class="dot"></span>
               </div>
-            </section>
-            <!-- Quick Links -->
-            <section class="card p-3 mb-3 quick-links-section">
-              <div class="quick-links-title mb-3">Quick Links</div>
-              <div class="row quick-links-grid">
-                <div class="col-6 mb-3">
-                  <div class="quick-link-item green">
-                    <div class="quick-link-icon"><i class="fa fa-check-circle"></i></div>
-                    <div class="quick-link-label">Exam Result</div>
-                  </div>
-                </div>
-                <div class="col-6 mb-3">
-                  <div class="quick-link-item blue">
-                    <div class="quick-link-icon"><i class="fa fa-bar-chart"></i></div>
-                    <div class="quick-link-label">Reports</div>
-                  </div>
-                </div>
-                <div class="col-6 mb-3">
-                  <div class="quick-link-item yellow">
-                    <div class="quick-link-icon"><i class="fa fa-calendar"></i></div>
-                    <div class="quick-link-label">Attendance</div>
-                  </div>
-                </div>
-                <div class="col-6 mb-3">
-                  <div class="quick-link-item lightblue">
-                    <div class="quick-link-icon"><i class="fa fa-calendar"></i></div>
-                    <div class="quick-link-label">Calender</div>
-                  </div>
-                </div>
-                <div class="col-6 mb-3">
-                  <div class="quick-link-item cyan">
-                    <div class="quick-link-icon"><i class="fa fa-calendar"></i></div>
-                    <div class="quick-link-label">Attendance</div>
-                  </div>
-                </div>
-                <div class="col-6 mb-3">
-                  <div class="quick-link-item red">
-                    <div class="quick-link-icon"><i class="fa fa-calendar"></i></div>
-                    <div class="quick-link-label">Calender</div>
-                  </div>
-                </div>
+            </div>
+            <!-- Present Students -->
+            <div class="summary-card present">
+              <div class="summary-icon"><i class="fa fa-sign-in"></i></div>
+              <div class="summery-content">
+                <div class="summary-value">455</div>
+                <div class="summary-label">Present Students</div>
               </div>
-            </section>
+              <div class="summary-separator">
+                <span class="dot"></span><span class="dot"></span
+                ><span class="dot"></span>
+              </div>
+            </div>
+            <!-- Absent Students -->
+            <div class="summary-card">
+              <div class="summary-icon"><i class="fa fa-user-times"></i></div>
+              <div class="summery-content">
+                <div class="summary-value">10</div>
+                <div class="summary-label">Absent Students</div>
+              </div>
+              <div class="summary-separator">
+                <span class="dot"></span><span class="dot"></span
+                ><span class="dot"></span>
+              </div>
+            </div>
+            <!-- Late Students Today (no separator here) -->
+            <div class="summary-card">
+              <div class="summary-icon"><i class="fa fa-clock-o"></i></div>
+              <div class="summery-content">
+                <div class="summary-value">25</div>
+                <div class="summary-label">Late Students Today</div>
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- Footer -->
-        <footer class="footer" role="contentinfo">Copyright 2022 © Endless All rights reserved.</footer>
-      </main>
-    </div>
-  </div>
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <!-- FullCalendar v3 JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-  <script>
-    $(function() {
-      $('#school-calendar-widget').fullCalendar({
-        header: false,
-        height: 'auto',
-        events: [
-          { title: 'Bangla Poetry Competition', start: '2024-06-08' },
-          { title: 'Independence Day', start: '2024-06-24' }
-        ]
-      });
-    });
-  </script>
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    // Bar Chart for Present and Absent
-    var ctxBar = document.getElementById('presentAbsentBar').getContext('2d');
-    new Chart(ctxBar, {
-      type: 'bar',
-      data: {
-        labels: ['MON', 'TUE', 'WED', 'THU', 'SAT', 'SUN'],
-        datasets: [
-          {
-            label: 'Present',
-            data: [120, 180, 300, 90, 200, 210],
-            backgroundColor: '#1769aa'
-          },
-          {
-            label: 'Absent',
-            data: [30, 60, 50, 20, 40, 35],
-            backgroundColor: '#b18aff'
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        legend: { display: false },
-        scales: {
-          xAxes: [{ stacked: true }],
-          yAxes: [{ stacked: true, ticks: { beginAtZero: true } }]
-        }
-      }
-    });
 
-    // Line Chart for Financial
-    var ctxLine = document.getElementById('financialLine').getContext('2d');
-    new Chart(ctxLine, {
-      type: 'line',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [
-          {
-            label: 'Income',
-            data: [100000, 120000, 150000, 200000, 300000, 400000, 500000, 450000, 350000, 200000, 150000, 100000],
-            borderColor: '#1769aa',
-            backgroundColor: 'rgba(23,105,170,0.08)',
-            fill: true,
-            tension: 0.4
+          <!-- Main Dashboard Content -->
+          <div class="row px-4">
+            <div class="col-md-8">
+              <!-- Report: Present and Absent -->
+              <section class="card p-3 mb-4 report-section">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <div>
+                    <div class="report-title">Report</div>
+                    <div class="report-subtitle">
+                      Present and Absent
+                      <span class="legend-dot present"></span> Present
+                      <span class="legend-dot absent"></span> Absent
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <select
+                      class="form-control form-control-sm mr-2 report-select"
+                    >
+                      <option>Class 10</option>
+                    </select>
+                    <select
+                      class="form-control form-control-sm mr-2 report-select"
+                    >
+                      <option>This Week</option>
+                    </select>
+                    <button class="btn btn-link p-0">
+                      <i class="fa fa-calendar"></i>
+                    </button>
+                  </div>
+                </div>
+                <ul class="nav nav-tabs report-tabs mb-3" role="tablist">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      data-toggle="tab"
+                      href="#students"
+                      role="tab"
+                      >Students</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      data-toggle="tab"
+                      href="#teachers"
+                      role="tab"
+                      >Teachers</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      data-toggle="tab"
+                      href="#staff"
+                      role="tab"
+                      >Staff</a
+                    >
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div
+                    class="tab-pane fade show active"
+                    id="students"
+                    role="tabpanel"
+                  >
+                    <div class="report-chart" id="present-absent-chart">
+                      <canvas id="presentAbsentBar"></canvas>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="teachers" role="tabpanel">
+                    <div class="report-chart">[Teachers Chart Placeholder]</div>
+                  </div>
+                  <div class="tab-pane fade" id="staff" role="tabpanel">
+                    <div class="report-chart">[Staff Chart Placeholder]</div>
+                  </div>
+                </div>
+              </section>
+              <!-- Statistics: Financial -->
+              <section class="card p-3 mb-4 statistics-section">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <div>
+                    <div class="statistics-title">Statistics</div>
+                    <div class="statistics-subtitle">
+                      Financial <span class="legend-dot income"></span> Income
+                      <span class="legend-dot expense"></span> Expence
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <button class="btn btn-link p-0 mr-2">
+                      <i class="fa fa-download"></i> Download
+                    </button>
+                    <select
+                      class="form-control form-control-sm statistics-select"
+                    >
+                      <option>Monthly</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="statistics-chart" id="financial-chart">
+                  <canvas id="financialLine"></canvas>
+                </div>
+              </section>
+              <!-- Report: Unpaid Student -->
+              <section
+                class="card p-4 mb-4 report-section unpaid-student-section"
+              >
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <div>
+                    <div class="report-title">Report</div>
+                    <div class="report-subtitle">Unpaid Student</div>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <select
+                      class="form-control form-control-sm mr-2 report-select"
+                    >
+                      <option>Class 10</option>
+                    </select>
+                    <select class="form-control form-control-sm report-select">
+                      <option>Monthly</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="table-responsive mb-2">
+                  <table class="table table-sm mb-0 unpaid-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>Class</th>
+                        <th>Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Samantha William</td>
+                        <td><a href="#">ID 20145</a></td>
+                        <td>Class Nine</td>
+                        <td>25K</td>
+                        <td>
+                          <a href="#"><i class="fa fa-eye"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Nadila Adja</td>
+                        <td><a href="#">ID 20145</a></td>
+                        <td>Class Ten</td>
+                        <td>25K</td>
+                        <td>
+                          <a href="#"><i class="fa fa-eye"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Nadila Adja</td>
+                        <td><a href="#">ID 20145</a></td>
+                        <td>Class Seven</td>
+                        <td>25K</td>
+                        <td>
+                          <a href="#"><i class="fa fa-eye"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Nadila Adja</td>
+                        <td><a href="#">ID 20145</a></td>
+                        <td>Class Ten</td>
+                        <td>25K</td>
+                        <td>
+                          <a href="#"><i class="fa fa-eye"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-2 unpaid-pagination"
+                >
+                  <div class="d-flex align-items-center">
+                    <span>Item per page:</span>
+                    <select
+                      class="form-control form-control-sm ml-2"
+                      style="width: 60px"
+                    >
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <span
+                    >1 - 10 OF 16 <i class="fa fa-angle-left mx-1"></i
+                    ><i class="fa fa-angle-right mx-1"></i
+                  ></span>
+                </div>
+              </section>
+              <div class="row mb-4 align-items-stretch">
+                <div class="col-md-6 mb-3 mb-md-0 d-flex">
+                  <section
+                    class="card p-3 sms-info-section w-100 d-flex flex-column align-items-center justify-content-center position-relative"
+                  >
+                    <div class="sms-title mb-2">SMS Information</div>
+                    <div
+                      class="position-relative d-flex align-items-center justify-content-center"
+                      style="height: 120px; width: 120px"
+                    >
+                      <canvas id="smsDonut" width="120" height="120"></canvas>
+                      <div
+                        class="sms-center-text position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center"
+                      >
+                        <div class="sms-total">17500</div>
+                        <div class="sms-label">Total SMS</div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between mt-3 sms-legend w-100 px-2"
+                    >
+                      <span
+                        ><span class="legend-dot sms-available"></span>
+                        Available SMS:11020</span
+                      >
+                      <span
+                        ><span class="legend-dot sms-send"></span> Send
+                        SMS:5200</span
+                      >
+                    </div>
+                  </section>
+                </div>
+                <div class="col-md-6 d-flex">
+                  <section
+                    class="card p-3 result-report-section w-100 d-flex flex-column align-items-center justify-content-center"
+                  >
+                    <div class="result-title mb-2 w-100">Result Report</div>
+                    <div class="d-flex mb-2 w-100">
+                      <select
+                        class="form-control form-control-sm mr-2 result-select"
+                      >
+                        <option>Class 10</option>
+                      </select>
+                      <select
+                        class="form-control form-control-sm result-select"
+                      >
+                        <option>Exam Type</option>
+                      </select>
+                    </div>
+                    <div class="w-100" style="min-height: 140px">
+                      <canvas id="resultBar" height="140"></canvas>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <!-- Right Sidebar Widgets -->
+            <div class="col-md-4">
+              <!-- Custom Card Component (from Figma JSON) -->
+              <div class="custom-card-container">
+                <div class="custom-card">
+                  <!-- Filter Button (top right) -->
+                  <button class="filter-btn">
+                    All Class
+                    <i class="fa fa-angle-down"></i>
+                  </button>
+                  <!-- Card Info -->
+                  <div class="card-info">
+                    <div class="card-type">Type Card</div>
+                    <div class="card-title">Card Title</div>
+                  </div>
+                  <!-- Chart Dots -->
+                  <div class="chart-dots">
+                    <div class="dot large-dot">
+                      <span class="dot-percentage large">85%</span>
+                    </div>
+                    <div class="dot medium-dot">
+                      <span class="dot-percentage medium">60%</span>
+                    </div>
+                  </div>
+                  <!-- Labels Row -->
+                  <div class="labels-row d-flex justify-content-between">
+                    <div class="label-item d-flex align-items-center">
+                      <span class="label-dot blue"></span>
+                      <span class="label-text">Label 1</span>
+                    </div>
+                    <div class="label-item d-flex align-items-center">
+                      <span class="label-dot purple"></span>
+                      <span class="label-text">Label 2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <section class="card p-3 mb-3" aria-labelledby="school-calendar">
+                <div
+                  class="card-title mb-2 d-flex align-items-center justify-content-between"
+                  id="school-calendar"
+                >
+                  <span>School Calendar</span>
+                  <button
+                    class="calendar-add-btn d-flex align-items-center"
+                    style="background: none; border: none; padding: 0"
+                  >
+                    <span
+                      class="calendar-add-icon d-flex align-items-center justify-content-center mr-2"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          x="3.5"
+                          y="3.5"
+                          width="17"
+                          height="17"
+                          rx="4"
+                          fill="white"
+                        />
+                        <path
+                          d="M12 8V16"
+                          stroke="#0057a7"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M8 12H16"
+                          stroke="#0057a7"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                        <rect
+                          x="1"
+                          y="1"
+                          width="22"
+                          height="22"
+                          rx="6"
+                          stroke="#0057a7"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="calendar-add-text"
+                      style="color: #0057a7; font-weight: 500; font-size: 16px"
+                      >Add New</span
+                    >
+                  </button>
+                </div>
+                <div id="school-calendar-widget"></div>
+                <div class="mb-1">
+                  <b>New Class Nine</b> - Bangla Poetry Competition
+                </div>
+                <div><b>24 Nov</b> - Independence Day</div>
+              </section>
+              <!-- Total Teacher Card -->
+              <section
+                class="card p-3 mb-3 teacher-card d-flex align-items-center justify-content-between"
+                aria-labelledby="total-teacher"
+              >
+                <div class="d-flex align-items-center">
+                  <div
+                    class="teacher-icon mr-3 d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa fa-frown-o"></i>
+                  </div>
+                  <div>
+                    <div class="teacher-count">56</div>
+                    <div class="teacher-label">TOTAL TEACHER</div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column align-items-end">
+                  <button class="btn btn-link p-0 teacher-dropdown">
+                    All Subject <i class="fa fa-angle-down ml-1"></i>
+                  </button>
+                  <i class="fa fa-arrow-right mt-2"></i>
+                </div>
+              </section>
+              <!-- Quick Links -->
+              <section class="card p-3 mb-3 quick-links-section">
+                <div class="quick-links-title mb-3">Quick Links</div>
+                <div class="row quick-links-grid">
+                  <div class="col-6 mb-3">
+                    <div class="quick-link-item green">
+                      <div class="quick-link-icon">
+                        <i class="fa fa-check-circle"></i>
+                      </div>
+                      <div class="quick-link-label">Exam Result</div>
+                    </div>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <div class="quick-link-item blue">
+                      <div class="quick-link-icon">
+                        <i class="fa fa-bar-chart"></i>
+                      </div>
+                      <div class="quick-link-label">Reports</div>
+                    </div>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <div class="quick-link-item yellow">
+                      <div class="quick-link-icon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <div class="quick-link-label">Attendance</div>
+                    </div>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <div class="quick-link-item lightblue">
+                      <div class="quick-link-icon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <div class="quick-link-label">Calender</div>
+                    </div>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <div class="quick-link-item cyan">
+                      <div class="quick-link-icon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <div class="quick-link-label">Attendance</div>
+                    </div>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <div class="quick-link-item red">
+                      <div class="quick-link-icon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <div class="quick-link-label">Calender</div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+          <!-- Footer -->
+          <footer class="footer" role="contentinfo">
+            Copyright 2022 © Endless All rights reserved.
+          </footer>
+        </main>
+      </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- FullCalendar v3 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script>
+      $(function () {
+        $("#school-calendar-widget").fullCalendar({
+          header: false,
+          height: "auto",
+          events: [
+            { title: "Bangla Poetry Competition", start: "2024-06-08" },
+            { title: "Independence Day", start: "2024-06-24" },
+          ],
+        });
+      });
+    </script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Bar Chart for Present and Absent
+      var ctxBar = document.getElementById("presentAbsentBar").getContext("2d");
+      new Chart(ctxBar, {
+        type: "bar",
+        data: {
+          labels: ["MON", "TUE", "WED", "THU", "SAT", "SUN"],
+          datasets: [
+            {
+              label: "Present",
+              data: [120, 180, 300, 90, 200, 210],
+              backgroundColor: "#1769aa",
+            },
+            {
+              label: "Absent",
+              data: [30, 60, 50, 20, 40, 35],
+              backgroundColor: "#b18aff",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          legend: { display: false },
+          scales: {
+            xAxes: [{ stacked: true }],
+            yAxes: [{ stacked: true, ticks: { beginAtZero: true } }],
           },
-          {
-            label: 'Expense',
-            data: [80000, 90000, 120000, 180000, 250000, 300000, 400000, 500000, 450000, 300000, 200000, 150000],
-            borderColor: '#b18aff',
-            backgroundColor: 'rgba(177,138,255,0.08)',
-            fill: true,
-            tension: 0.4
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        legend: { display: false },
-        scales: {
-          yAxes: [{ ticks: { beginAtZero: true } }]
-        }
-      }
-    });
-  </script>
-  <script>
-    // SMS Donut Chart
-    var ctxDonut = document.getElementById('smsDonut').getContext('2d');
-    new Chart(ctxDonut, {
-      type: 'doughnut',
-      data: {
-        labels: ['Available', 'Sent'],
-        datasets: [{
-          data: [11020, 5200],
-          backgroundColor: ['#1769aa', '#b18aff'],
-          borderWidth: 0
-        }]
-      },
-      options: {
-        cutoutPercentage: 75,
-        responsive: false,
-        legend: { display: false },
-        tooltips: { enabled: false },
-      }
-    });
-    // Result Report Horizontal Bar Chart
-    var ctxResult = document.getElementById('resultBar').getContext('2d');
-    new Chart(ctxResult, {
-      type: 'horizontalBar',
-      data: {
-        labels: ['A+', 'A', 'A-', 'B', 'C'],
-        datasets: [{
-          label: 'Students',
-          data: [250, 200, 150, 100, 50],
-          backgroundColor: '#b18aff',
-          borderRadius: 8,
-          barThickness: 16
-        }]
-      },
-      options: {
-        responsive: true,
-        legend: { display: false },
-        scales: {
-          xAxes: [{
-            ticks: { beginAtZero: true },
-            gridLines: { color: '#f0f0f0' }
-          }],
-          yAxes: [{
-            gridLines: { display: false }
-          }]
-        }
-      }
-    });
-  </script>
-</body>
-</html> 
+        },
+      });
+
+      // Line Chart for Financial
+      var ctxLine = document.getElementById("financialLine").getContext("2d");
+      new Chart(ctxLine, {
+        type: "line",
+        data: {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          datasets: [
+            {
+              label: "Income",
+              data: [
+                100000, 120000, 150000, 200000, 300000, 400000, 500000, 450000,
+                350000, 200000, 150000, 100000,
+              ],
+              borderColor: "#1769aa",
+              backgroundColor: "rgba(23,105,170,0.08)",
+              fill: true,
+              tension: 0.4,
+            },
+            {
+              label: "Expense",
+              data: [
+                80000, 90000, 120000, 180000, 250000, 300000, 400000, 500000,
+                450000, 300000, 200000, 150000,
+              ],
+              borderColor: "#b18aff",
+              backgroundColor: "rgba(177,138,255,0.08)",
+              fill: true,
+              tension: 0.4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          legend: { display: false },
+          scales: {
+            yAxes: [{ ticks: { beginAtZero: true } }],
+          },
+        },
+      });
+    </script>
+    <script>
+      // SMS Donut Chart
+      var ctxDonut = document.getElementById("smsDonut").getContext("2d");
+      new Chart(ctxDonut, {
+        type: "doughnut",
+        data: {
+          labels: ["Available", "Sent"],
+          datasets: [
+            {
+              data: [11020, 5200],
+              backgroundColor: ["#1769aa", "#b18aff"],
+              borderWidth: 0,
+            },
+          ],
+        },
+        options: {
+          cutoutPercentage: 75,
+          responsive: false,
+          legend: { display: false },
+          tooltips: { enabled: false },
+        },
+      });
+      // Result Report Horizontal Bar Chart
+      var ctxResult = document.getElementById("resultBar").getContext("2d");
+      new Chart(ctxResult, {
+        type: "horizontalBar",
+        data: {
+          labels: ["A+", "A", "A-", "B", "C"],
+          datasets: [
+            {
+              label: "Students",
+              data: [250, 200, 150, 100, 50],
+              backgroundColor: "#b18aff",
+              borderRadius: 8,
+              barThickness: 16,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          legend: { display: false },
+          scales: {
+            xAxes: [
+              {
+                ticks: { beginAtZero: true },
+                gridLines: { color: "#f0f0f0" },
+              },
+            ],
+            yAxes: [
+              {
+                gridLines: { display: false },
+              },
+            ],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
